@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  minio:
+    image: docker.io/bitnami/minio:latest
+    restart: always
+    ports:
+      - '9090:9090'
+      - '9091:9091'
+    networks:
+      - minionetwork
+    volumes:
+      - 'minio_data:/data'
+    environment:
+      - MINIO_ROOT_USER=test_user
+      - MINIO_ROOT_PASSWORD=test_secret
+      - MINIO_DEFAULT_BUCKETS=ung
+
+networks:
+  minionetwork:
+    driver: bridge
+
+volumes:
+  minio_data:
+    driver: local

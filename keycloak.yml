@@ -1,0 +1,96 @@
+version: "1"
+services:
+  keycloak:
+    image: bitnami/keycloak:latest
+    restart: always
+    container_name: keycloak
+    volumes:
+      - "./keycloak-realm.json:/opt/keycloak/data/import/keycloak-realm.json:Z"
+    command:
+      - start-dev
+      - --import-realm
+    environment:
+      DB_VENDOR: POSTGRES
+      DB_ADDR: postgres
+      DB_DATABASE: quarkus
+      DB_USER: quarkus
+      DB_PASSWORD: quarkus
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    ports:
+      - "7777:8080"
+        #depends_on:
+      #- postgres-keycloak
+
+
+
+
+
+# docker run --name keycloak -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin -p 8543:8443 -v "$(pwd)"/config/keycloak-keystore.jks:/etc/keycloak-keystore.jks quay.io/keycloak/keycloak:{keycloak.version} start  --hostname-strict=false --https-key-store-file=/etc/keycloak-keystore.jks
+#
+#
+#version: '3.8'
+#
+#services:
+#  keycloak:  # 서비스 이름
+#    image: quay.io/keycloak/keycloak:latest  # 사용할 이미지
+#    ports:
+#      - "8080:8080"  # 포트 매핑 (호스트:컨테이너)
+#    environment:
+#      - KEYCLOAK_ADMIN=admin  # Keycloak 관리자 계정 환경 변수
+#      - KEYCLOAK_ADMIN_PASSWORD=admin  # Keycloak 관리자 비밀번호 환경 변수
+#    command: start-dev
+
+
+
+#services:
+#  keycloak:
+#    image: quay.io/keycloak/keycloak:latest
+#    container_name: keycloak
+#    environment:
+#      - KEYCLOAK_ADMIN=admin
+#      - KEYCLOAK_ADMIN_PASSWORD=admin
+#    ports:
+#      - '8543:8543'
+#    volumes:
+#      - ${PWD}/config/keycloak-keystore.jks:/etc/keycloak-keystore.jks
+#    command: >
+#      start
+#      --hostname-strict=false
+#      --https-key-store-file=/etc/keycloak-keystore.jks
+#
+#
+
+#version: '3.8'  # Docker Compose 파일의 버전
+#
+#services:
+#  keycloak:  # 서비스 이름
+#    image: quay.io/keycloak/keycloak:{keycloak.version}  # 사용할 이미지
+#    container_name: keycloak  # 컨테이너 이름
+#    environment:
+#      - KEYCLOAK_ADMIN=admin  # Keycloak 관리자 계정 환경 변수
+#      - KEYCLOAK_ADMIN_PASSWORD=admin  # Keycloak 관리자 비밀번호 환경 변수
+#    ports:
+#      - "8543:8443"  # 포트 매핑 (호스트:컨테이너)
+#    volumes:
+#      - "${PWD}/config/keycloak-keystore.jks:/etc/keycloak-keystore.jks"  # 호스트와 컨테이너 간 볼륨 매핑
+#    command: >
+#      start  # Keycloak 서버 시작
+#      --hostname-strict=false  # 엄격한 호스트 이름 검사 해제
+#      --https-key-store-file=/etc/keycloak-keystore.jks  # HTTPS 키 저장소 파일 지정
+#
+## 아래는 동일한 Docker 실행 명령어에 대한 주석입니다:
+##
+## docker run \
+##   --name keycloak \                               # 컨테이너 이름
+##   -e KEYCLOAK_ADMIN=admin \                        # Keycloak 관리자 계정 환경 변수
+##   -e KEYCLOAK_ADMIN_PASSWORD=admin \               # Keycloak 관리자 비밀번호 환경 변수
+##   -p 8543:8443 \                                   # 포트 매핑 (호스트:컨테이너)
+##   -v "$(pwd)"/config/keycloak-keystore.jks:/etc/keycloak-keystore.jks \  # 호스트와 컨테이너 간 볼륨 매핑
+##   quay.io/keycloak/keycloak:{keycloak.version} \  # 사용할 이미지
+##   start \                                          # Keycloak 서버 시작
+##   --hostname-strict=false \                        # 엄격한 호스트 이름 검사 해제
+##   --https-key-store-file=/etc/keycloak-keystore.jks  # HTTPS 키 저장소 파일 지정
+
+
+

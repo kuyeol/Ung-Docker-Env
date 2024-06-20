@@ -1,0 +1,38 @@
+version: '3.7'
+
+services:
+  consul-server:
+    image: hashicorp/consul:latest
+    container_name: consul
+#    restart: always
+#    volumes:
+#      - ./server.json:/consul/config/server.json:ro
+#    networks:
+#      - consul
+    ports:
+      - "8500:8500"
+      - "8600:8600/tcp"
+      - "8600:8600/udp"
+    command: "agent -server -bootstrap -ui -client=0.0.0.0"
+#
+#  docker run --rm --name consul -p 8500:8500 -p 8501:8501 consul:1.7 agent -dev -ui -client=0.0.0.0 -bind=0.0.0.0 --https-port=8501
+
+
+
+
+
+
+
+#  consul-client:
+#    image: hashicorp/consul:1.10.0
+#    container_name: consul-client
+#    restart: always
+#    volumes:
+#      - ./client.json:/consul/config/client.json:ro
+#    networks:
+#      - consul
+#    command: "agent"
+#
+#networks:
+#  consul:
+#    driver: bridge
