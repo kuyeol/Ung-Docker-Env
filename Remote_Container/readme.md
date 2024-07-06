@@ -2,12 +2,14 @@
 
 # Dev_Zero
 
+> ### https://www.devzero.io/dashboard
+> 브라우저 접속
+
 ### 컨테이너는 미리 만들어 놓는다 레시피에서 빌드에 사용 할 환경 구성 스크립트 작성
 > `환경 작성` -> `저장` ->  `퍼블리시` -> `런치!`  
 
 
-> ### https://www.devzero.io/dashboard
-> 브라우저 접속
+
 
 
 현재 환경에서 접속하기 위해 CLI 설치
