@@ -3,33 +3,42 @@
 # Dev_Zero
 
 > ### https://www.devzero.io/dashboard
-> 브라우저 접속
-
-### 컨테이너는 미리 만들어 놓는다 레시피에서 빌드에 사용 할 환경 구성 스크립트 작성
-> `환경 작성` -> `저장` ->  `퍼블리시` -> `런치!`  
+> 브라우저 접속 Url
 
 
 
+> [!NOTE]
+>컨테이너는 미리 만들어 놓는다 레시피에서 빌드에 사용 할 환경 구성 스크립트 작성
+> 
+> `환경정의` -> `저장` -> `빌드` -> `퍼블리시` -> `런치!`  
 
 
-현재 환경에서 접속하기 위해 CLI 설치
+
+
+
+## 리모트 컨테이너 엑세스 
+
+_CLI 인스톨
 ```bash
 curl -fsSL https://get.devzero.io | sh
 ```
 
-접속 커맨드
+_접속 커맨드
 
 ```bash
 # Kafka && Kube Container 
 
  dz ws connect ruling-skylark-sggm
 ```
+
 ```bash
 #Minio Container
 
  dz ws connect brash-filly-xmci
 ```
-
+> [!TIP]
+> 커맨드 실행 시 출력 되는 인증용 링크는 다른 기기에서 접속하여도
+> 인증이 가능 하다
 
 # ip 외부 노출
 
@@ -48,7 +57,8 @@ dz network status
 > -j DNAT --to-destination 100.60.10.10:9000
 
 > [!Warning]
-> 저장 안할 시 리부트 초기화
+> 저장 안할 시
+> `리부트` == `초기화`
 >
 ```bash
 #!bin/bash
