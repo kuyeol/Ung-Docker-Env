@@ -47,9 +47,13 @@ dz network status
 > 가져올 아이피와 포트 DevZero 연결 인증 후 바인딩 가능 
 > -j DNAT --to-destination 100.60.10.10:9000
 
-
-
-
+> [!Warning]
+> 저장 안할 시 리부트 초기화
+>
+```bash
+#!bin/bash
+sudo iptables-save
+```
 ## 적용 커맨드
 
 ```bash
