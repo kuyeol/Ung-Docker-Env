@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  ngrok:
+    image: ngrok/ngrok:latest
+    restart: always
+    network_mode: host
+    environment:
+      - NGROK_AUTHTOKEN=2gqxi1HXUvNT0PmhN19Wu6LqkrG_7XNij4hk1iZ71xGXchdQY
+    command: http --domain=mite-suitable-monthly.ngrok-free.app
