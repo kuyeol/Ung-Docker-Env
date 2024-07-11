@@ -87,7 +87,10 @@ sudo iptables -t nat -A POSTROUTING -j MASQUERADE
 ```
 
 # 규칙 핸들링
-
+```
+#초기화
+sudo iptables -F
+```
 ```bash
 # 적용 규칙 리스트
 
